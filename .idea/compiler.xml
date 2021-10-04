@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="DictionaryofTamCaAoTrang" />
         <module name="Dictionary_Application" />
+        <module name="TamCaAoTrang" />
       </profile>
     </annotationProcessing>
   </component>
