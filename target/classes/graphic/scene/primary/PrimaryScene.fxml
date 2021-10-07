@@ -26,7 +26,7 @@
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" />
          </BorderPane.margin>
-         <JFXTextField fx:id="searchTextField" focusColor="#18f500" maxHeight="-Infinity" onAction="#searchWord" onKeyReleased="#printSuggestedWords" prefHeight="54.0" prefWidth="195.0" promptText=" Search English" style="-fx-background-color: GREY; -fx-text-inner-color: WHITE; -fx-prompt-text-fill: WHITE;" unFocusColor="WHITE">
+         <JFXTextField fx:id="searchTextField" focusColor="#18f500" maxHeight="-Infinity" onAction="#searchWord" onKeyReleased="#printSuggestedWords" prefHeight="54.0" prefWidth="195.0" promptText=" Search English" style="-fx-background-color: WHITE; -fx-text-inner-color: BLACK; -fx-prompt-text-fill: BLACK;" unFocusColor="WHITE">
             <font>
                <Font name="System Bold" size="18.0" />
             </font>
@@ -45,11 +45,11 @@
       <JFXColorPicker fx:id="colorPicker" onAction="#changeColor" promptText="Change Color" style="-fx-background-color: #4DD0E1;" BorderPane.alignment="CENTER" />
    </bottom>
    <center>
-      <VBox fx:id="wordExplainScene" prefHeight="766.0" prefWidth="605.0" style="-fx-background-color: GREY;" BorderPane.alignment="CENTER">
+      <VBox fx:id="wordExplainScene" prefHeight="766.0" prefWidth="605.0" style="-fx-background-color: WHITE;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" />
          </BorderPane.margin>
-         <AnchorPane prefHeight="34.0" prefWidth="480.0" VBox.vgrow="NEVER">
+         <AnchorPane prefHeight="34.0" prefWidth="480.0" style="-fx-background-color: WHITE;" VBox.vgrow="NEVER">
             <VBox.margin>
                <Insets left="5.0" right="5.0" top="5.0" />
             </VBox.margin>
@@ -117,7 +117,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIconView glyphName="PLUS_SQUARE" size="22" />
+                        <FontAwesomeIconView fill="#ee0e0e" glyphName="GOOGLE_PLUS" size="22" />
                      </graphic>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -131,7 +131,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIconView glyphName="LANGUAGE" size="22" />
+                        <FontAwesomeIconView fill="#1e1ed3" glyphName="LANGUAGE" size="22" />
                      </graphic>
                   </JFXButton>
                   <JFXButton buttonType="RAISED" contentDisplay="RIGHT" onAction="#setFavoriteWordsScene" prefHeight="37.0" prefWidth="123.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Favorites" textAlignment="CENTER" textFill="WHITE">
@@ -139,7 +139,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIconView glyphName="STAR" size="22" />
+                        <FontAwesomeIconView fill="#f51616" glyphName="HEART" size="22" />
                      </graphic>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
