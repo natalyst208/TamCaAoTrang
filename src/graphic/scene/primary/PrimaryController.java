@@ -66,19 +66,6 @@ public class PrimaryController implements Initializable  {
     public static String currentWord;
 
     @FXML
-    public void changeColor() {
-        Color selectedColor = colorPicker.getValue();
-        borderPane.setBackground(new Background(new BackgroundFill(
-                selectedColor, CornerRadii.EMPTY, Insets.EMPTY
-        )));
-        listView.setBackground(new Background(new BackgroundFill(
-                selectedColor, CornerRadii.EMPTY, Insets.EMPTY
-        )));
-        toolBar.setBackground(new Background(new BackgroundFill(
-                selectedColor, CornerRadii.EMPTY, Insets.EMPTY
-        )));
-    }
-
     public void searchWord() {
         currentWord = searchTextField.getText();
         if (myDictionary.isContain(currentWord)) {

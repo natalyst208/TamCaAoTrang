@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXColorPicker?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Menu?>
@@ -18,9 +17,6 @@
 <?import javafx.scene.web.HTMLEditor?>
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: #ABEC55;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphic.scene.add.AddWordController">
-   <bottom>
-      <JFXColorPicker fx:id="colorPicker" onAction="#changeColor" promptText="Change Color" style="-fx-background-color: #4DD0E1;" BorderPane.alignment="CENTER" />
-   </bottom>
    <center>
       <VBox fx:id="wordExplainScene" prefHeight="766.0" prefWidth="605.0" style="-fx-background-color: GREY;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -118,4 +114,3 @@
       </VBox>
    </top>
 </BorderPane>
-
