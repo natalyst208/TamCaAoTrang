@@ -1,7 +1,8 @@
 # Dictionary Application
-Dictionary translate English to Vietnamese and Vietnamese to English <br/>
+Từ Điển Ngôn Ngữ  <br/>
 Author: Nguyễn Anh Tuấn - 20020219 <br/>
-Author: Đỗ Thùy Linh	- 20020112
+Author: Đỗ Thùy Linh	- 20020112 <br/>
+Author: Lê Thái Sơn	    - 20020069 <br/>
 # Source: 
 Icon: https://icons-for-free.com/apps+dictionary-131996347660924613/ <br/>
       https://bitbucket.org/Jerady/fontawesomefx/downloads/ <br/>

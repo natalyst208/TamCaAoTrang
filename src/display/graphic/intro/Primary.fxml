@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: #ABEC55;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="display.graphic.intro.PrimaryController">
+   <left>
+      <VBox prefHeight="560.0" prefWidth="195.0" style="-fx-background-color: GREY;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" />
+         </BorderPane.margin>
+         <JFXTextField fx:id="searchTextField" focusColor="#18f500" maxHeight="-Infinity" onAction="#searchWord" onKeyReleased="#printSuggestedWords" prefHeight="54.0" prefWidth="195.0" promptText=" Search English" style="-fx-background-color: WHITE; -fx-text-inner-color: BLACK; -fx-prompt-text-fill: BLACK;" unFocusColor="WHITE">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="TEXT" />
+            </cursor>
+         </JFXTextField>
+         <JFXListView fx:id="listView" onMouseClicked="#getSelectedWordInSuggestedList" prefHeight="560.0" prefWidth="196.0" style="-fx-font-size: 16;" VBox.vgrow="ALWAYS">
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
+         </JFXListView>
+      </VBox>
+   </left>
+   <center>
+      <VBox fx:id="wordExplainScene" prefHeight="766.0" prefWidth="605.0" style="-fx-background-color: WHITE;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" />
+         </BorderPane.margin>
+         <AnchorPane prefHeight="34.0" prefWidth="480.0" style="-fx-background-color: WHITE;" VBox.vgrow="NEVER">
+            <VBox.margin>
+               <Insets left="5.0" right="5.0" top="5.0" />
+            </VBox.margin>
+            <FontAwesomeIconView fx:id="speakerIcon" fill="#e41010" glyphName="VOLUME_UP" layoutY="18.0" onMouseClicked="#pronounceWord" size="20" visible="false" wrappingWidth="23.571428298950195" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <FontAwesomeIconView fx:id="favorite" fill="#da1e1e" glyphName="HEART" layoutX="458.0" layoutY="18.0" onMouseClicked="#changeFavoriteStatus" size="22" textAlignment="CENTER" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </AnchorPane>
+         <WebView fx:id="wordExplainView" pickOnBounds="true" prefHeight="406.0" prefWidth="505.0" VBox.vgrow="ALWAYS">
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
+         </WebView>
+         <AnchorPane prefHeight="22.0" prefWidth="490.0" style="-fx-background-color: WHITE;" VBox.vgrow="NEVER">
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
+            <JFXButton buttonType="RAISED" layoutY="2.0" onAction="#setEditWordScene" prefHeight="37.0" prefWidth="91.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Edit" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="2.0">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="EDIT" size="20" textAlignment="CENTER" />
+               </graphic>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="390.0" onAction="#deleteWord" prefHeight="30.0" prefWidth="100.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Delete" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="TRASH" size="20" textAlignment="CENTER" />
+               </graphic>
+            </JFXButton>
+         </AnchorPane>
+      </VBox>
+   </center>
+   <top>
+      <VBox prefHeight="100.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+         <MenuBar prefHeight="21.0" prefWidth="900.0">
+            <Menu mnemonicParsing="false" text="Version">
+               <MenuItem mnemonicParsing="false" onAction="#EnglishVietnameseVersion" text="English - Vietnamese" />
+               <MenuItem mnemonicParsing="false" onAction="#AnhVietVersion" text="Việt - Anh" />
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <MenuItem mnemonicParsing="false" text="About" />
+            </Menu>
+         </MenuBar>
+         <ImageView fitHeight="98.0" fitWidth="701.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@images/phong.png" />
+            </image>
+         </ImageView>
+         <HBox maxHeight="80.0" maxWidth="890.0" prefHeight="80.0" prefWidth="890.0" VBox.vgrow="NEVER">
+            <VBox.margin>
+               <Insets bottom="5.0" left="5.0" />
+            </VBox.margin>
+            <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="47.0" prefWidth="709.0" style="-fx-background-color: #ABEC55;">
+               <items>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="RIGHT" onAction="#setAddWordScene" prefHeight="37.0" prefWidth="147.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text=" Add Word" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="#ee0e0e" glyphName="GOOGLE_PLUS" size="22" />
+                     </graphic>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="RIGHT" onAction="#setGoogleTranslateScene" prefHeight="37.0" prefWidth="211.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="API Google Translate" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="#1e1ed3" glyphName="LANGUAGE" size="22" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" contentDisplay="RIGHT" onAction="#setFavoriteWordsScene" prefHeight="37.0" prefWidth="123.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Favorites" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="#f51616" glyphName="HEART" size="22" />
+                     </graphic>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </JFXButton>
+               </items>
+            </ToolBar>
+         </HBox>
+      </VBox>
+   </top>
+</BorderPane>

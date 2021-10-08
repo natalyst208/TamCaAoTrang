@@ -29,7 +29,7 @@ public class LevenshteinDistance {
     }
 
     public static String[] getTopScore(String word){
-        ResultSet resultSet = myDictionary.dictionarySearch(word.substring(0, (word.length() + 1)/2));
+        ResultSet resultSet = myDictionary.SearchDic(word.substring(0, (word.length() + 1)/2));
         String[] result = new String[ProjectConfig.numberDidYouMeanWord];
         ArrayList<Pair> arrayList = new ArrayList<>();
         while (true) {

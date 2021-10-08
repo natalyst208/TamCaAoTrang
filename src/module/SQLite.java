@@ -4,8 +4,11 @@ import utility.ProjectConfig;
 
 import java.sql.*;
 
+/*
+https://www.tutorialspoint.com/sqlite/sqlite_java.htm
+ */
 public class SQLite {
-    private static SQLite mySQLite;
+    private static SQLite DicSQLite;
     public Connection connection = null;
 
     private SQLite() {
@@ -13,12 +16,15 @@ public class SQLite {
     }
 
     public static SQLite getSQLite() {
-        if (mySQLite == null) {
-            mySQLite = new SQLite();
+        if (DicSQLite == null) {
+            DicSQLite = new SQLite();
         }
-        return mySQLite;
+        return DicSQLite;
     }
 
+    /*
+    https://www.sqlitetutorial.net/sqlite-java/sqlite-jdbc-driver/
+     */
     public void connectDatabase(String filePath) {
         try {
             this.connection = DriverManager.getConnection(filePath);
@@ -31,21 +37,21 @@ public class SQLite {
     public Statement creatStatement() {
         Statement statement  = null;
         try {
-            statement = mySQLite.connection.createStatement();
+            statement = DicSQLite.connection.createStatement();
         } catch (SQLException e) {
-            System.out.println("Can't creat statement!");
+            System.out.println("Creat statement unsucessfully");
             e.printStackTrace();
         }
         return statement;
     }
 
     public ResultSet executeQuery(String query) {
-        Statement statement = mySQLite.creatStatement();
+        Statement statement = DicSQLite.creatStatement();
         ResultSet resultSet = null;
         try {
             resultSet = statement.executeQuery(query);
         } catch (SQLException e) {
-            System.out.println("Can't execute query: " + query);
+            System.out.println("Execute query unsuccessfully: " + query);
             e.printStackTrace();
         }
         return resultSet;
@@ -54,7 +60,7 @@ public class SQLite {
     public int getMaxID() {
         String query = "SELECT MAX(id) AS max FROM " + ProjectConfig.databaseName;
         try {
-            ResultSet resultSet = mySQLite.executeQuery(query);
+            ResultSet resultSet = DicSQLite.executeQuery(query);
             return resultSet.getInt("max");
         } catch (SQLException e) {
             e.printStackTrace();
