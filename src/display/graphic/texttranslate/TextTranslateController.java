@@ -2,7 +2,7 @@ package display.graphic.texttranslate;
 
 import com.jfoenix.controls.JFXTextArea;
 import display.dialog.ConfirmDialog;
-import display.graphic.intro.PrimaryController;
+import display.graphic.intro.IntroController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-public class GoogleTranslateController extends PrimaryController {
+public class TextTranslateController extends IntroController {
 
   Language language = Language.getLanguage();
 
@@ -39,7 +39,7 @@ public class GoogleTranslateController extends PrimaryController {
     boolean isConfirm = cancelConfirm.show("Add Word",
         "Are you sure want to back?");
     if (isConfirm) {
-      ProjectConfig.primaryStage.setScene(PrimaryController.getScene());
+      ProjectConfig.primaryStage.setScene(IntroController.getScene());
     }
   }
 
@@ -64,7 +64,7 @@ public class GoogleTranslateController extends PrimaryController {
   }
 
   public static Scene getScene() throws IOException {
-    Parent root = FXMLLoader.load(GoogleTranslateController.class.getResource("texttranslate.fxml"));
+    Parent root = FXMLLoader.load(TextTranslateController.class.getResource("texttranslate.fxml"));
     return new Scene(root);
   }
 

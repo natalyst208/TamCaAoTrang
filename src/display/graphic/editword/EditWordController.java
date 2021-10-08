@@ -2,7 +2,7 @@ package display.graphic.editword;
 
 import display.dialog.ConfirmDialog;
 import display.dialog.InformationDialog;
-import display.graphic.intro.PrimaryController;
+import display.graphic.intro.IntroController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,12 +15,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EditWordController extends PrimaryController implements Initializable {
+public class EditWordController extends IntroController implements Initializable {
   @FXML
   private HTMLEditor htmlEditor;
 
   public void setPrimaryStage() throws IOException {
-    ProjectConfig.primaryStage.setScene(PrimaryController.getScene());
+    ProjectConfig.primaryStage.setScene(IntroController.getScene());
   }
 
   public void setBackButton() throws IOException {

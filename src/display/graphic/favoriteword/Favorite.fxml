@@ -45,9 +45,6 @@
                <MenuItem mnemonicParsing="false" onAction="#EnglishVietnameseVersion" text="English - Vietnamese" />
                <MenuItem mnemonicParsing="false" onAction="#AnhVietVersion" text="Việt - Anh" />
             </Menu>
-            <Menu mnemonicParsing="false" text="Help">
-               <MenuItem mnemonicParsing="false" text="About" />
-            </Menu>
          </MenuBar>
          <ImageView fitHeight="99.0" fitWidth="703.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -71,7 +68,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="335.0" layoutY="10.0" onAction="#setGoogleTranslateScene" prefHeight="32.0" prefWidth="212.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="API Google Translate" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="335.0" layoutY="10.0" onAction="#setGoogleTranslateScene" prefHeight="32.0" prefWidth="212.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Text Translation" textFill="WHITE">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>

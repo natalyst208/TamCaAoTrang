@@ -4,7 +4,7 @@ import dictionary.Word;
 import display.dialog.ConfirmDialog;
 import display.dialog.ErrorDialog;
 import display.dialog.InformationDialog;
-import display.graphic.intro.PrimaryController;
+import display.graphic.intro.IntroController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AddWordController extends PrimaryController {
+public class AddWordController extends IntroController {
   @FXML
   private HTMLEditor htmlEditor;
 
@@ -38,7 +38,7 @@ public class AddWordController extends PrimaryController {
   }
 
   public void setPrimaryStage() throws IOException {
-    ProjectConfig.primaryStage.setScene(PrimaryController.getScene());
+    ProjectConfig.primaryStage.setScene(IntroController.getScene());
   }
 
   public void setBackButton() throws IOException {

@@ -11,7 +11,7 @@ public class Run extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(
-            "display/graphic/intro/Primary.fxml"));
+            "display/graphic/intro/Intro.fxml"));
         Scene scene = new Scene(root);
         ProjectConfig.primaryStage.setScene(scene);
         ProjectConfig.primaryStage.show();

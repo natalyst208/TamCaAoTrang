@@ -1,24 +1,21 @@
 package display.graphic.intro;
 
-import display.graphic.texttranslate.GoogleTranslateController;
+import display.graphic.texttranslate.TextTranslateController;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import module.LevenshteinDistance;
 import module.TextToSpeech;
-import com.jfoenix.controls.JFXColorPicker;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import dictionary.DictionaryManagement;
 import display.dialog.ConfirmDialog;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.web.WebView;
 import display.graphic.addword.AddWordController;
 import display.graphic.favoriteword.FavoriteController;
@@ -32,7 +29,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class PrimaryController implements Initializable {
+public class IntroController implements Initializable {
 
   protected DictionaryManagement myDictionary = DictionaryManagement.getDictionaryManagement();
 
@@ -41,9 +38,6 @@ public class PrimaryController implements Initializable {
 
   @FXML
   public TextField searchTextField;
-
-  @FXML
-  private JFXColorPicker colorPicker;
 
   @FXML
   private WebView wordExplainView;
@@ -66,18 +60,6 @@ public class PrimaryController implements Initializable {
   public static String currentWord;
 
   @FXML
-  public void changeColor() {
-    Color selectedColor = colorPicker.getValue();
-    borderPane.setBackground(new Background(new BackgroundFill(
-        selectedColor, CornerRadii.EMPTY, Insets.EMPTY
-    )));
-    listView.setBackground(new Background(new BackgroundFill(
-        selectedColor, CornerRadii.EMPTY, Insets.EMPTY
-    )));
-    toolBar.setBackground(new Background(new BackgroundFill(
-        selectedColor, CornerRadii.EMPTY, Insets.EMPTY
-    )));
-  }
 
   public void searchWord() {
     currentWord = searchTextField.getText();
@@ -169,7 +151,7 @@ public class PrimaryController implements Initializable {
   }
 
   public void setGoogleTranslateScene() throws IOException {
-    ProjectConfig.primaryStage.setScene(GoogleTranslateController.getScene());
+    ProjectConfig.primaryStage.setScene(TextTranslateController.getScene());
   }
 
   public void setFavoriteWordsScene() throws IOException {
@@ -177,18 +159,18 @@ public class PrimaryController implements Initializable {
   }
 
   public static Scene getScene() throws IOException {
-    Parent root = FXMLLoader.load(PrimaryController.class.getResource("Primary.fxml"));
+    Parent root = FXMLLoader.load(IntroController.class.getResource("Intro.fxml"));
     return new Scene(root);
   }
 
   public void EnglishVietnameseVersion() throws IOException {
     ProjectConfig.databaseName = "av";
-    ProjectConfig.primaryStage.setScene(PrimaryController.getScene());
+    ProjectConfig.primaryStage.setScene(IntroController.getScene());
   }
 
   public void AnhVietVersion() throws IOException {
     ProjectConfig.databaseName = "va";
-    ProjectConfig.primaryStage.setScene(PrimaryController.getScene());
+    ProjectConfig.primaryStage.setScene(IntroController.getScene());
   }
 
   @Override
@@ -199,10 +181,12 @@ public class PrimaryController implements Initializable {
       e.printStackTrace();
     }
     if (currentWord == null) {
-      String html = "<h1> Ứng dụng từ điển Anh - Việt </h1>";
-      html = html + "<h1> Tác giả: </h1>";
-      html = html + "<h1> Nguyễn Trần Anh Đức - 19020007 </h1>";
-      html = html + "<h1> Nguyễn Kim Đức - 19020006 </h1>";
+      String html = "<h1> Hướng dẫn sử dụng: </h1>";
+      html = html + "<h1> 1. Lựa chọn Eng-Vi hoặc Vi-Eng tại phần Version  </h1>";
+      html = html + "<h1> 2. Sử dụng SearchWord để tra cứu từ .</h1>";
+      html = html + "<h1> 3. Sử dụng Text Translation để dịch thuật một văn bản</h1>";
+      html = html + "<h1> 3. Sử dụng Favorites để ghi nhớ từ ngữ yêu thích </h1>";
+      html = html + "<h1> 4. Xin cảm ơn quý khách đã sử dụng phần mềm !</h1>";
       wordExplainView.getEngine().loadContent(html);
     } else {
       setWordExplainScene();

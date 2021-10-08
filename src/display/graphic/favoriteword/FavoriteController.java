@@ -2,7 +2,7 @@ package display.graphic.favoriteword;
 
 import com.jfoenix.controls.JFXListView;
 import display.dialog.ConfirmDialog;
-import display.graphic.intro.PrimaryController;
+import display.graphic.intro.IntroController;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class FavoriteController extends PrimaryController implements Initializable {
+public class FavoriteController extends IntroController implements Initializable {
 
   @FXML
   JFXListView<String> listFavoriteWords;
@@ -27,7 +27,7 @@ public class FavoriteController extends PrimaryController implements Initializab
     boolean isConfirm = cancelConfirm.show("Add New Word",
         "Are you sure want to back?");
     if (isConfirm) {
-      ProjectConfig.primaryStage.setScene(PrimaryController.getScene());
+      ProjectConfig.primaryStage.setScene(IntroController.getScene());
     }
   }
 
@@ -47,7 +47,7 @@ public class FavoriteController extends PrimaryController implements Initializab
   public void getFavoriteInList() throws IOException {
     ObservableList<String> selectedIndices = listFavoriteWords.getSelectionModel().getSelectedItems();
     currentWord = selectedIndices.get(0);
-    ProjectConfig.primaryStage.setScene(PrimaryController.getScene());
+    ProjectConfig.primaryStage.setScene(IntroController.getScene());
   }
 
   public static Scene getScene() throws IOException {
