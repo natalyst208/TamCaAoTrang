@@ -19,10 +19,6 @@ public class EditWordController extends IntroController implements Initializable
   @FXML
   private HTMLEditor htmlEditor;
 
-  public void setPrimaryStage() throws IOException {
-    ProjectConfig.primaryStage.setScene(IntroController.getScene());
-  }
-
   public void setBackButton() throws IOException {
     ConfirmDialog cancelConfirm = new ConfirmDialog();
     boolean isConfirm = cancelConfirm.show("Add New Word",
@@ -44,6 +40,9 @@ public class EditWordController extends IntroController implements Initializable
     }
   }
 
+  public void setPrimaryStage() throws IOException {
+    ProjectConfig.primaryStage.setScene(IntroController.getScene());
+  }
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     String html = myDictionary.LookupDic(currentWord);

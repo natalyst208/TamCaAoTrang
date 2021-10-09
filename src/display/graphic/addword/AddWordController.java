@@ -20,6 +20,12 @@ public class AddWordController extends IntroController {
   @FXML
   private HTMLEditor htmlEditor;
 
+  public boolean addWord() {
+    String html = htmlEditor.getHtmlText();
+    String word = Utils.getWordFromHtlmText(html);
+    Word newWord = new Word(word, html);
+    return myDictionary.saveWord(newWord);
+  }
   public void setSaveButton() throws IOException {
     ConfirmDialog addWordConfirm = new ConfirmDialog();
     boolean isConfirm = addWordConfirm.show("Add New Word",
@@ -36,11 +42,6 @@ public class AddWordController extends IntroController {
       }
     }
   }
-
-  public void setPrimaryStage() throws IOException {
-    ProjectConfig.primaryStage.setScene(IntroController.getScene());
-  }
-
   public void setBackButton() throws IOException {
     ConfirmDialog cancelConfirm = new ConfirmDialog();
     boolean isConfirm = cancelConfirm.show("Add New Word",
@@ -50,11 +51,8 @@ public class AddWordController extends IntroController {
     }
   }
 
-  public boolean addWord() {
-    String html = htmlEditor.getHtmlText();
-    String word = Utils.getWordFromHtlmText(html);
-    Word newWord = new Word(word, html);
-    return myDictionary.saveWord(newWord);
+  public void setPrimaryStage() throws IOException {
+    ProjectConfig.primaryStage.setScene(IntroController.getScene());
   }
 
   public static Scene getScene() throws IOException {

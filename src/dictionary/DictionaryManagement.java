@@ -47,23 +47,6 @@ public class DictionaryManagement extends Dictionary {
     return DicSQLite.executeQuery(query);
   }
 
-  public boolean checkbeContained(String word) {
-    String result = LookupDic(word);
-    return !result.equals("<h1>Không tìm thấy dữ liệu.</h1>");
-  }
-
-  public int checkbeFavorited(String word) {
-    word = word.replaceAll("'", "''");
-    String query = "SELECT favorite FROM " + ProjectConfig.databaseName
-        + " WHERE word LIKE " + "'" + word + "'";
-    try {
-      return DicSQLite.executeQuery(query).getInt("favorite");
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
-    return 0;
-  }
-
   public boolean saveWord(Word word) {
     if (checkbeContained(word.word)) {
       return false;
@@ -114,6 +97,19 @@ public class DictionaryManagement extends Dictionary {
     }
   }
 
+  public int checkbeFavorited(String word) {
+    word = word.replaceAll("'", "''");
+    String query = "SELECT favorite FROM " + ProjectConfig.databaseName
+        + " WHERE word LIKE " + "'" + word + "'";
+    try {
+      return DicSQLite.executeQuery(query).getInt("favorite");
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return 0;
+  }
+
+
   public void setFavoriteStatus(String word, int status) {
     word = word.replaceAll("'", "''");
     String query = "UPDATE " + ProjectConfig.databaseName
@@ -133,4 +129,10 @@ public class DictionaryManagement extends Dictionary {
         + " WHERE favorite = 1";
     return DicSQLite.executeQuery(query);
   }
+
+  public boolean checkbeContained(String word) {
+    String result = LookupDic(word);
+    return !result.equals("<h1>Không tìm thấy dữ liệu.</h1>");
+  }
+
 }

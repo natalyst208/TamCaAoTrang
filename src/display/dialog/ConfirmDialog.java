@@ -7,13 +7,13 @@ import java.util.Optional;
 
 public class ConfirmDialog {
 
-  Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+  Alert notification = new Alert(Alert.AlertType.CONFIRMATION);
 
   public boolean show(String title, String message) {
-    alert.setTitle(title);
-    alert.setHeaderText(null);
-    alert.setContentText(message);
-    Optional<ButtonType> option = alert.showAndWait();
+    notification.setTitle(title);
+    notification.setHeaderText(null);
+    notification.setContentText(message);
+    Optional<ButtonType> option = notification.showAndWait();
     return option.filter(buttonType -> buttonType == ButtonType.OK).isPresent();
   }
 }
