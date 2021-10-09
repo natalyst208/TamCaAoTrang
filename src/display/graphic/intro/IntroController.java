@@ -1,10 +1,13 @@
 package display.graphic.intro;
 
 import display.graphic.texttranslate.TextTranslateController;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import module.LevenshteinDistance;
 import module.TextToSpeech;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -173,6 +176,20 @@ public class IntroController implements Initializable {
     ProjectConfig.primaryStage.setScene(IntroController.getScene());
   }
 
+  public void About(ActionEvent event)//hàm thông tin
+  {
+    Alert alert=new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Information");
+    alert.setHeaderText(null);
+    alert.setContentText("This Dictionary was written by Nguyen Anh Tuan & Do Thuy Linh & Le Thai Son");
+    alert.show();
+  }
+
+  public void Quit(ActionEvent event) {//ham đóng ứng dụng
+    Platform.exit();
+    System.exit(0);
+  }
+
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     try {
@@ -180,17 +197,5 @@ public class IntroController implements Initializable {
     } catch (SQLException e) {
       e.printStackTrace();
     }
-    if (currentWord == null) {
-      String html = "<h1> Hướng dẫn sử dụng: </h1>";
-      html = html + "<h1> 1. Lựa chọn Eng-Vi hoặc Vi-Eng tại phần Version  </h1>";
-      html = html + "<h1> 2. Sử dụng SearchWord để tra cứu từ .</h1>";
-      html = html + "<h1> 3. Sử dụng Text Translation để dịch thuật một văn bản</h1>";
-      html = html + "<h1> 3. Sử dụng Favorites để ghi nhớ từ ngữ yêu thích </h1>";
-      html = html + "<h1> 4. Xin cảm ơn quý khách đã sử dụng phần mềm !</h1>";
-      wordExplainView.getEngine().loadContent(html);
-    } else {
-      setWordExplainScene();
-    }
   }
-
 }
