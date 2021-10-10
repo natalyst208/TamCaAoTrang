@@ -55,9 +55,19 @@
    <top>
       <VBox prefHeight="100.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <MenuBar prefHeight="21.0" prefWidth="900.0">
+            <Menu mnemonicParsing="false" text="File">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#Quit" text="Quit" />
+              </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Version">
                <MenuItem mnemonicParsing="false" onAction="#EnglishVietnameseVersion" text="English - Vietnamese" />
                <MenuItem mnemonicParsing="false" onAction="#AnhVietVersion" text="Việt - Anh" />
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#About" text="About" />
+              </items>
             </Menu>
          </MenuBar>
          <ImageView fitHeight="181.0" fitWidth="703.0" pickOnBounds="true" preserveRatio="true">
@@ -84,7 +94,7 @@
                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                   </padding>
                </JFXButton>
-               <JFXButton buttonType="RAISED" onAction="#setGoogleTranslateScene" prefHeight="37.0" prefWidth="225.0" ripplerFill="#00ff09" style="-fx-background-color: GREEN;" text="Text Translation" textFill="WHITE">
+               <JFXButton buttonType="RAISED" onAction="#setGoogleTranslateScene" prefHeight="37.0" prefWidth="215.0" ripplerFill="#00ff09" style="-fx-background-color: GREEN;" text="Text Translation" textFill="WHITE">
                   <padding>
                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                   </padding>

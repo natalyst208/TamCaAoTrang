@@ -18,32 +18,22 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: #ABEC55;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="display.graphic.favoriteword.FavoriteController">
-   <left>
-      <VBox prefHeight="560.0" prefWidth="195.0" style="-fx-background-color: GREY;" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="5.0" left="5.0" />
-         </BorderPane.margin>
-         <JFXTextField fx:id="searchTextField" focusColor="BLACK" maxHeight="-Infinity" maxWidth="350.0" onAction="#searchWord" onKeyReleased="#printSuggestedWords" prefHeight="44.0" prefWidth="186.0" promptText=" Search English" style="-fx-background-color: WHITE; -fx-text-inner-color: BLACK; -fx-prompt-text-fill: BLACK;" unFocusColor="BLACK">
-            <font>
-               <Font name="System Bold" size="18.0" />
-            </font>
-            <cursor>
-               <Cursor fx:constant="TEXT" />
-            </cursor>
-         </JFXTextField>
-         <JFXListView fx:id="listView" onMouseClicked="#getSelectedWordInSuggestedList" prefHeight="560.0" prefWidth="196.0" style="-fx-font-size: 16;" VBox.vgrow="ALWAYS">
-            <VBox.margin>
-               <Insets />
-            </VBox.margin>
-         </JFXListView>
-      </VBox>
-   </left>
    <top>
       <VBox prefHeight="100.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <MenuBar prefHeight="21.0" prefWidth="900.0">
+            <Menu mnemonicParsing="false" text="File">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#Quit" text="Quit" />
+              </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Version">
                <MenuItem mnemonicParsing="false" onAction="#EnglishVietnameseVersion" text="English - Vietnamese" />
                <MenuItem mnemonicParsing="false" onAction="#AnhVietVersion" text="Việt - Anh" />
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#About" text="About" />
+              </items>
             </Menu>
          </MenuBar>
          <ImageView fitHeight="99.0" fitWidth="703.0" pickOnBounds="true" preserveRatio="true">
@@ -57,7 +47,7 @@
             </VBox.margin>
             <AnchorPane>
                <children>
-                  <JFXButton buttonType="RAISED" layoutX="195.0" layoutY="10.0" onAction="#setAddWordScene" prefHeight="37.0" prefWidth="138.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text=" Add Word" textAlignment="CENTER" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="8.0" layoutY="10.0" onAction="#setAddWordScene" prefHeight="37.0" prefWidth="205.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text=" Add Word" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -68,7 +58,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="335.0" layoutY="10.0" onAction="#setGoogleTranslateScene" prefHeight="32.0" prefWidth="212.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Text Translation" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="227.0" layoutY="10.0" onAction="#setGoogleTranslateScene" prefHeight="37.0" prefWidth="242.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Text Translation" textFill="WHITE">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -79,7 +69,7 @@
                         <FontAwesomeIconView fill="#1f15b9" glyphName="LANGUAGE" size="22" />
                      </graphic>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="551.0" layoutY="10.0" onAction="#setFavoriteWordsScene" prefHeight="36.0" prefWidth="132.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Favorites" textAlignment="CENTER" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="485.0" layoutY="10.0" onAction="#setFavoriteWordsScene" prefHeight="37.0" prefWidth="196.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Favorites" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -100,7 +90,15 @@
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" />
          </BorderPane.margin>
-         <JFXListView fx:id="listFavoriteWords" onMouseClicked="#getFavoriteInList" prefHeight="544.0" prefWidth="490.0" style="-fx-font-size: 18;">
+         <JFXTextField fx:id="searchTextField" focusColor="#18f500" onAction="#searchWord" prefHeight="14.0" prefWidth="690.0" promptText="Search English" style="-fx-background-color: WHITE; -fx-text-inner-color: BLACK; -fx-prompt-text-fill: BLACK;" unFocusColor="WHITE">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="TEXT" />
+            </cursor>
+         </JFXTextField>
+         <JFXListView fx:id="listFavoriteWords" onMouseClicked="#getFavoriteInList" prefHeight="475.0" prefWidth="690.0" style="-fx-font-size: 18;">
             <padding>
                <Insets right="20.0" />
             </padding></JFXListView>
