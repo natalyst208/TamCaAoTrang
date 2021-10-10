@@ -45,7 +45,7 @@
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" />
          </BorderPane.margin>
-         <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="550.0" prefWidth="490.0" style="-fx-background-color: WHITE;" VBox.vgrow="ALWAYS" />
+         <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="561.0" prefWidth="550.0" style="-fx-background-color: WHITE;" VBox.vgrow="ALWAYS" />
          <AnchorPane prefHeight="34.0" prefWidth="490.0" style="-fx-background-color: WHITE;" VBox.vgrow="NEVER">
             <VBox.margin>
                <Insets />
@@ -78,6 +78,11 @@
    <top>
       <VBox prefHeight="100.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <MenuBar prefHeight="21.0" prefWidth="900.0">
+            <Menu mnemonicParsing="false" text="File">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#Quit" text="Quit" />
+              </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Version">
                <MenuItem mnemonicParsing="false" onAction="#EnglishVietnameseVersion" text="English - Vietnamese" />
                <MenuItem mnemonicParsing="false" onAction="#AnhVietVersion" text="Việt - Anh" />
@@ -99,7 +104,7 @@
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>
-               <JFXButton buttonType="RAISED" contentDisplay="RIGHT" onAction="#setAddWordScene" prefHeight="50.0" prefWidth="135.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text=" Add Word" textAlignment="CENTER" textFill="WHITE">
+               <JFXButton buttonType="RAISED" contentDisplay="RIGHT" onAction="#setAddWordScene" prefHeight="37.0" prefWidth="231.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text=" Add Word" textAlignment="CENTER" textFill="WHITE">
                   <font>
                      <Font name="System Bold" size="18.0" />
                   </font>
@@ -110,7 +115,7 @@
                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                   </padding>
                </JFXButton>
-               <JFXButton buttonType="RAISED" contentDisplay="RIGHT" onAction="#setGoogleTranslateScene" prefHeight="50.0" prefWidth="205.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Text Translation" textFill="WHITE">
+               <JFXButton buttonType="RAISED" contentDisplay="RIGHT" onAction="#setGoogleTranslateScene" prefHeight="37.0" prefWidth="215.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Text Translation" textFill="WHITE">
                   <padding>
                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                   </padding>
@@ -121,7 +126,7 @@
                      <FontAwesomeIconView fill="#144bd7" glyphName="LANGUAGE" size="22" />
                   </graphic>
                </JFXButton>
-               <JFXButton buttonType="RAISED" contentDisplay="RIGHT" onAction="#setFavoriteWordsScene" prefHeight="50.0" prefWidth="128.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Favorites" textAlignment="CENTER" textFill="WHITE">
+               <JFXButton buttonType="RAISED" contentDisplay="RIGHT" onAction="#setFavoriteWordsScene" prefHeight="37.0" prefWidth="217.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Favorites" textAlignment="CENTER" textFill="WHITE">
                   <font>
                      <Font name="System Bold" size="18.0" />
                   </font>
