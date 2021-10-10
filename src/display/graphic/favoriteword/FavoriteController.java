@@ -24,9 +24,9 @@ public class FavoriteController extends IntroController implements Initializable
 
   public void setBackButton() throws IOException {
     ConfirmDialog cancelNotification = new ConfirmDialog();
-    boolean isConfirm = cancelNotification.show("Add New Word",
+    boolean checkNoti = cancelNotification.show("Add New Word",
         "Are you sure want to back?");
-    if (isConfirm) {
+    if (checkNoti) {
       ProjectConfig.introStage.setScene(IntroController.getScene());
     }
   }

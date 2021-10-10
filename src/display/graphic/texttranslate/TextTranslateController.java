@@ -36,9 +36,9 @@ public class TextTranslateController extends IntroController {
 
   public void setBackButton() throws IOException {
     ConfirmDialog cancelNotification = new ConfirmDialog();
-    boolean isConfirm = cancelNotification.show("Add Word",
+    boolean checkNoti = cancelNotification.show("Add Word",
         "Are you sure want to back?");
-    if (isConfirm) {
+    if (checkNoti) {
       ProjectConfig.introStage.setScene(IntroController.getScene());
     }
   }

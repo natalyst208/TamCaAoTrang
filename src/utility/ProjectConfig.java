@@ -18,8 +18,8 @@ public class ProjectConfig {
         introStage.setOnCloseRequest(close -> {
             close.consume();
             ConfirmDialog confirmClose = new ConfirmDialog();
-            boolean isConfirm = confirmClose.show("Close", "Are you sure want to exit?");
-            if (isConfirm) {
+            boolean checkNoti = confirmClose.show("Close", "Are you sure want to exit?");
+            if (checkNoti) {
                 introStage.close();
             } else {
                 introStage.show();

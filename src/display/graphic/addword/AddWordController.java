@@ -28,9 +28,9 @@ public class AddWordController extends IntroController {
   }
   public void setSaveButton() throws IOException {
     ConfirmDialog addWordConfirm = new ConfirmDialog();
-    boolean isConfirm = addWordConfirm.show("Add New Word",
+    boolean checkNoti = addWordConfirm.show("Add New Word",
         "Are you sure want to add this word?");
-    if (isConfirm) {
+    if (checkNoti) {
       boolean isSave = addWord();
       if (isSave) {
         InformationDialog addDialog = new InformationDialog();

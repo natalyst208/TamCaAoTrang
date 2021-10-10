@@ -24,18 +24,18 @@ public class EditWordController extends IntroController implements Initializable
   }
   public void setBackButton() throws IOException {
     ConfirmDialog cancelNotification = new ConfirmDialog();
-    boolean isConfirm = cancelNotification.show("Add New Word",
+    boolean checkNoti = cancelNotification.show("Add New Word",
         "Are you sure want to back?");
-    if (isConfirm) {
+    if (checkNoti) {
       setintroStage();
     }
   }
 
   public void setSaveButton() throws IOException {
     ConfirmDialog editWordConfirm = new ConfirmDialog();
-    boolean isConfirm = editWordConfirm.show("Edit Word",
+    boolean checkNoti = editWordConfirm.show("Edit Word",
         "Are you sure want to edit this word?");
-    if (isConfirm) {
+    if (checkNoti) {
       myDictionary.editWord(currentWord, htmlEditor.getHtmlText());
       InformationDialog savedDialog = new InformationDialog();
       savedDialog.show("Edit Word", "Edited successfully");

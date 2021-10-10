@@ -89,8 +89,8 @@ public class IntroController implements Initializable {
 
   public void deleteWord() throws SQLException {
     ConfirmDialog deleteConfirm = new ConfirmDialog();
-    boolean isConfirm = deleteConfirm.show("Delete", "Are you sure want to delete this word?");
-    if (isConfirm) {
+    boolean checkNoti = deleteConfirm.show("Delete", "Are you sure want to delete this word?");
+    if (checkNoti) {
       wordExplainView.getEngine()
           .loadContent("<h1>Không tìm thấy dữ liệu.</h1>");
       myDictionary.deleteWord(currentWord);
