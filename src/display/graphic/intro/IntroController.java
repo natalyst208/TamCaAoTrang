@@ -146,19 +146,19 @@ public class IntroController implements Initializable {
   }
 
   public void setAddWordScene() throws IOException {
-    ProjectConfig.primaryStage.setScene(AddWordController.getScene());
+    ProjectConfig.introStage.setScene(AddWordController.getScene());
   }
 
   public void setEditWordScene() throws IOException {
-    ProjectConfig.primaryStage.setScene(EditWordController.getScene());
+    ProjectConfig.introStage.setScene(EditWordController.getScene());
   }
 
   public void setGoogleTranslateScene() throws IOException {
-    ProjectConfig.primaryStage.setScene(TextTranslateController.getScene());
+    ProjectConfig.introStage.setScene(TextTranslateController.getScene());
   }
 
   public void setFavoriteWordsScene() throws IOException {
-    ProjectConfig.primaryStage.setScene(FavoriteController.getScene());
+    ProjectConfig.introStage.setScene(FavoriteController.getScene());
   }
 
   public static Scene getScene() throws IOException {
@@ -168,12 +168,12 @@ public class IntroController implements Initializable {
 
   public void EnglishVietnameseVersion() throws IOException {
     ProjectConfig.databaseName = "av";
-    ProjectConfig.primaryStage.setScene(IntroController.getScene());
+    ProjectConfig.introStage.setScene(IntroController.getScene());
   }
 
   public void AnhVietVersion() throws IOException {
     ProjectConfig.databaseName = "va";
-    ProjectConfig.primaryStage.setScene(IntroController.getScene());
+    ProjectConfig.introStage.setScene(IntroController.getScene());
   }
 
   public void About(ActionEvent event)//hàm thông tin
@@ -196,6 +196,10 @@ public class IntroController implements Initializable {
       printSuggestedWords();
     } catch (SQLException e) {
       e.printStackTrace();
+    }
+    if (currentWord == null) {
+    } else {
+      setWordExplainScene();
     }
   }
 }

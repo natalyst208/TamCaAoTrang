@@ -35,11 +35,11 @@ public class TextTranslateController extends IntroController {
   private ChoiceBox<String> choiceBoxTranslated;
 
   public void setBackButton() throws IOException {
-    ConfirmDialog cancelConfirm = new ConfirmDialog();
-    boolean isConfirm = cancelConfirm.show("Add Word",
+    ConfirmDialog cancelNotification = new ConfirmDialog();
+    boolean isConfirm = cancelNotification.show("Add Word",
         "Are you sure want to back?");
     if (isConfirm) {
-      ProjectConfig.primaryStage.setScene(IntroController.getScene());
+      ProjectConfig.introStage.setScene(IntroController.getScene());
     }
   }
 

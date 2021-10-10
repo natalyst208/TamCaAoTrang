@@ -35,7 +35,7 @@ public class AddWordController extends IntroController {
       if (isSave) {
         InformationDialog addDialog = new InformationDialog();
         addDialog.show("Add New Word", "Added successfully");
-        setPrimaryStage();
+        setintroStage();
       } else {
         ErrorDialog addDialog = new ErrorDialog();
         addDialog.show("Add New Word", "Error: The word already had");
@@ -43,16 +43,16 @@ public class AddWordController extends IntroController {
     }
   }
   public void setBackButton() throws IOException {
-    ConfirmDialog cancelConfirm = new ConfirmDialog();
-    boolean isConfirm = cancelConfirm.show("Add New Word",
+    ConfirmDialog cancelNotification = new ConfirmDialog();
+    boolean checkNoti = cancelNotification.show("Add New Word",
         "Are you sure want to back?");
-    if (isConfirm) {
-      setPrimaryStage();
+    if (checkNoti) {
+      setintroStage();
     }
   }
 
-  public void setPrimaryStage() throws IOException {
-    ProjectConfig.primaryStage.setScene(IntroController.getScene());
+  public void setintroStage() throws IOException {
+    ProjectConfig.introStage.setScene(IntroController.getScene());
   }
 
   public static Scene getScene() throws IOException {

@@ -10,19 +10,19 @@ public class ProjectConfig {
 
     public static String dictionaryIconPath = "./resource/logo/dictionary_icon.png";
     public static int numberDidYouMeanWord = 3;
-    public static Stage primaryStage = new Stage();
+    public static Stage introStage = new Stage();
     static {
-        primaryStage.setTitle("Dictionary");
+        introStage.setTitle("Dictionary");
         Image dictionary_icon = Utils.loadImage(ProjectConfig.dictionaryIconPath);
-        primaryStage.getIcons().add(dictionary_icon);
-        primaryStage.setOnCloseRequest(close -> {
+        introStage.getIcons().add(dictionary_icon);
+        introStage.setOnCloseRequest(close -> {
             close.consume();
             ConfirmDialog confirmClose = new ConfirmDialog();
             boolean isConfirm = confirmClose.show("Close", "Are you sure want to exit?");
             if (isConfirm) {
-                primaryStage.close();
+                introStage.close();
             } else {
-                primaryStage.show();
+                introStage.show();
             }
         });
     }

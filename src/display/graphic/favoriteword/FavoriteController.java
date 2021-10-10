@@ -23,11 +23,11 @@ public class FavoriteController extends IntroController implements Initializable
   JFXListView<String> listFavoriteWords;
 
   public void setBackButton() throws IOException {
-    ConfirmDialog cancelConfirm = new ConfirmDialog();
-    boolean isConfirm = cancelConfirm.show("Add New Word",
+    ConfirmDialog cancelNotification = new ConfirmDialog();
+    boolean isConfirm = cancelNotification.show("Add New Word",
         "Are you sure want to back?");
     if (isConfirm) {
-      ProjectConfig.primaryStage.setScene(IntroController.getScene());
+      ProjectConfig.introStage.setScene(IntroController.getScene());
     }
   }
 
@@ -47,7 +47,7 @@ public class FavoriteController extends IntroController implements Initializable
   public void getFavoriteInList() throws IOException {
     ObservableList<String> selectedIndices = listFavoriteWords.getSelectionModel().getSelectedItems();
     currentWord = selectedIndices.get(0);
-    ProjectConfig.primaryStage.setScene(IntroController.getScene());
+    ProjectConfig.introStage.setScene(IntroController.getScene());
   }
 
   public static Scene getScene() throws IOException {
