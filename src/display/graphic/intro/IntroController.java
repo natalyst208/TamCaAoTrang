@@ -8,7 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import module.LevenshteinDistance;
+import module.LevenshteinAlthogrim;
 import module.TextToSpeech;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import dictionary.DictionaryManagement;
@@ -115,7 +115,7 @@ public class IntroController implements Initializable {
   private void setDidYouMeanScene() {
     StringBuilder html = new StringBuilder("<h1>Không tìm thấy dữ liệu.</h1>");
     html.append("<h1>Có phải từ bạn muốn tìm kiếm là: </h1>");
-    String[] result = LevenshteinDistance.getTopScore(currentWord);
+    String[] result = LevenshteinAlthogrim.getMostSimilar(currentWord);
     for (String word : result) {
       if (word == null) {
         continue;

@@ -21,7 +21,7 @@ public class Utils {
             FileInputStream input = new FileInputStream(filePath);
             image = new Image(input);
         } catch (FileNotFoundException e) {
-            System.out.println("Error: Can't load image " + filePath);
+            System.out.println("Error: Load image unsuccessfully " + filePath);
             e.printStackTrace();
         }
         return image;

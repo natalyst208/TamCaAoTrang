@@ -9,7 +9,7 @@ public class ProjectConfig {
     public static String databaseName = "av";
 
     public static String dictionaryIconPath = "./resource/logo/dictionary_icon.png";
-    public static int numberDidYouMeanWord = 3;
+    public static int numberDidYouMeanWord = 5;
     public static Stage introStage = new Stage();
     static {
         introStage.setTitle("Dictionary");

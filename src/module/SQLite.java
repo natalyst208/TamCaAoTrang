@@ -29,7 +29,7 @@ public class SQLite {
         try {
             this.connection = DriverManager.getConnection(filePath);
         } catch (SQLException e) {
-            System.out.println("Can't connect to database!");
+            System.out.println("Connect to database unsuccessfully ");
             e.printStackTrace();
         }
     }
@@ -57,6 +57,10 @@ public class SQLite {
         return resultSet;
     }
 
+    /*
+    https://www.w3schools.com/sql/sql_ref_as.asp
+    ALIAS trong SQL
+     */
     public int getMaxID() {
         String query = "SELECT MAX(id) AS max FROM " + ProjectConfig.databaseName;
         try {
