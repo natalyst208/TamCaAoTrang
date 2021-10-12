@@ -89,9 +89,19 @@
    <top>
       <VBox prefHeight="100.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <MenuBar prefHeight="21.0" prefWidth="900.0">
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#Quit" text="Quit" />
+               </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Version">
                <MenuItem mnemonicParsing="false" onAction="#EnglishVietnameseVersion" text="English - Vietnamese" />
-               <MenuItem mnemonicParsing="false" onAction="#AnhVietVersion" text="Việt - Anh" />
+               <MenuItem mnemonicParsing="false" onAction="#VietAnhVersion" text="Việt - Anh" />
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#About" text="About" />
+               </items>
             </Menu>
          </MenuBar>
          <ImageView fitHeight="98.0" fitWidth="701.0" pickOnBounds="true" preserveRatio="true">

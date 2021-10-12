@@ -8,11 +8,8 @@ import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 
 /**
- *
- * 
  * @author GOXR3PLUS
  * https://github.com/goxr3plus/Java-Google-Text-To-Speech/blob/master/src/application/Trying_Different_Languages.java
- *
  */
 
 public class TextToSpeech {

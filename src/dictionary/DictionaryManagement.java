@@ -17,12 +17,12 @@ public class DictionaryManagement extends Dictionary {
   public static DictionaryManagement getDictionaryManagement() {
     if (dictionaryManagement == null) {
       dictionaryManagement = new DictionaryManagement();
-      dictionaryManagement.loadWordFromDatabase();
+      dictionaryManagement.loadDataFromDatabase();
     }
     return dictionaryManagement;
   }
 
-  public void loadWordFromDatabase() {
+  public void loadDataFromDatabase() {
     System.out.println("Load dictionary from ...");
     DicSQLite.connectDatabase(ProjectConfig.databasePath);
     System.out.println("Loaded!");
@@ -30,8 +30,8 @@ public class DictionaryManagement extends Dictionary {
 
   public String LookupDic(String word) {
     word = word.replaceAll("'", "''");
-    String query = "SELECT * FROM " + ProjectConfig.databaseName
-        + " WHERE word LIKE " + "'" + word + "'";
+    String query =
+        "SELECT * FROM " + ProjectConfig.databaseName + " WHERE word LIKE " + "'" + word + "'";
     ResultSet resultSet = DicSQLite.executeQuery(query);
     try {
       return resultSet.getString("html");
@@ -42,8 +42,8 @@ public class DictionaryManagement extends Dictionary {
 
   public ResultSet SearchDic(String word) {
     word = word.replaceAll("'", "''");
-    String query = "SELECT * FROM " + ProjectConfig.databaseName
-        + " WHERE word LIKE " + "'" + word + "%'";
+    String query =
+        "SELECT * FROM " + ProjectConfig.databaseName + " WHERE word LIKE " + "'" + word + "%'";
     return DicSQLite.executeQuery(query);
   }
 
@@ -52,8 +52,7 @@ public class DictionaryManagement extends Dictionary {
       return false;
     }
     System.out.println(word.word);
-    String query = "INSERT INTO " + ProjectConfig.databaseName
-        + "(id, word, html, favorite)"
+    String query = "INSERT INTO " + ProjectConfig.databaseName + "(id, word, html, favorite)"
         + "VALUES(?,?,?, 0)";
     int numberRows = DicSQLite.getMaxID();
     try {
@@ -70,9 +69,7 @@ public class DictionaryManagement extends Dictionary {
   }
 
   public void editWord(String word, String newHtml) {
-    String query = "UPDATE " + ProjectConfig.databaseName
-        + " SET html = ?"
-        + " WHERE word = ?";
+    String query = "UPDATE " + ProjectConfig.databaseName + " SET html = ?" + " WHERE word = ?";
     try {
       PreparedStatement preparedStatement;
       preparedStatement = DicSQLite.connection.prepareStatement(query);
@@ -86,8 +83,8 @@ public class DictionaryManagement extends Dictionary {
 
   public void deleteWord(String word) {
     word = word.replaceAll("'", "''");
-    String query = "DELETE FROM " + ProjectConfig.databaseName
-        + " WHERE word LIKE " + "'" + word + "'";
+    String query =
+        "DELETE FROM " + ProjectConfig.databaseName + " WHERE word LIKE " + "'" + word + "'";
     try {
       PreparedStatement preparedStatement;
       preparedStatement = DicSQLite.connection.prepareStatement(query);
@@ -99,8 +96,9 @@ public class DictionaryManagement extends Dictionary {
 
   public int checkbeFavorited(String word) {
     word = word.replaceAll("'", "''");
-    String query = "SELECT favorite FROM " + ProjectConfig.databaseName
-        + " WHERE word LIKE " + "'" + word + "'";
+    String query =
+        "SELECT favorite FROM " + ProjectConfig.databaseName + " WHERE word LIKE " + "'" + word
+            + "'";
     try {
       return DicSQLite.executeQuery(query).getInt("favorite");
     } catch (SQLException e) {
@@ -112,9 +110,9 @@ public class DictionaryManagement extends Dictionary {
 
   public void setFavoriteStatus(String word, int status) {
     word = word.replaceAll("'", "''");
-    String query = "UPDATE " + ProjectConfig.databaseName
-        + " SET favorite" + " = " + status
-        + " WHERE word" + " IS " + "'" + word + "'";
+    String query =
+        "UPDATE " + ProjectConfig.databaseName + " SET favorite" + " = " + status + " WHERE word"
+            + " IS " + "'" + word + "'";
     try {
       PreparedStatement preparedStatement;
       preparedStatement = DicSQLite.connection.prepareStatement(query);
@@ -125,8 +123,7 @@ public class DictionaryManagement extends Dictionary {
   }
 
   public ResultSet getFavorite() {
-    String query = "SELECT word FROM " + ProjectConfig.databaseName
-        + " WHERE favorite = 1";
+    String query = "SELECT word FROM " + ProjectConfig.databaseName + " WHERE favorite = 1";
     return DicSQLite.executeQuery(query);
   }
 

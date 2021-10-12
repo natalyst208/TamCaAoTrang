@@ -23,15 +23,6 @@ public class FavoriteController extends IntroController implements Initializable
   @FXML
   JFXListView<String> listFavoriteWords;
 
-  public void setBackButton() throws IOException {
-    ConfirmDialog cancelNotification = new ConfirmDialog();
-    boolean checkNoti = cancelNotification.show("Add New Word",
-        "Are you sure want to back?");
-    if (checkNoti) {
-      ProjectConfig.introStage.setScene(IntroController.getScene());
-    }
-  }
-
   public void getFavorites() {
     listFavoriteWords.getItems().clear();
     ResultSet resultSet = myDictionary.getFavorite();
@@ -54,6 +45,15 @@ public class FavoriteController extends IntroController implements Initializable
   public static Scene getScene() throws IOException {
     Parent root = FXMLLoader.load(FavoriteController.class.getResource("Favorite.fxml"));
     return new Scene(root);
+  }
+
+  public void setBackButton() throws IOException {
+    ConfirmDialog cancelNotification = new ConfirmDialog();
+    boolean checkNoti = cancelNotification.show("Add New Word",
+        "Are you sure want to back?");
+    if (checkNoti) {
+      ProjectConfig.introStage.setScene(IntroController.getScene());
+    }
   }
 
   @Override

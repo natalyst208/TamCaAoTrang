@@ -85,7 +85,7 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Version">
                <MenuItem mnemonicParsing="false" onAction="#EnglishVietnameseVersion" text="English - Vietnamese" />
-               <MenuItem mnemonicParsing="false" onAction="#AnhVietVersion" text="Việt - Anh" />
+               <MenuItem mnemonicParsing="false" onAction="#VietAnhVersion" text="Việt - Anh" />
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
                <MenuItem mnemonicParsing="false" text="About" />

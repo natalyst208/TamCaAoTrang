@@ -171,7 +171,7 @@ public class IntroController implements Initializable {
     ProjectConfig.introStage.setScene(IntroController.getScene());
   }
 
-  public void AnhVietVersion() throws IOException {
+  public void VietAnhVersion() throws IOException {
     ProjectConfig.databaseName = "va";
     ProjectConfig.introStage.setScene(IntroController.getScene());
   }
