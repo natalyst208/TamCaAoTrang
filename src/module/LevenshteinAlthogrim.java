@@ -36,7 +36,7 @@ public class LevenshteinAlthogrim {
 
     public static String[] getMostSimilar(String word){
         ResultSet resultSet = myDictionary.SearchDic(word.substring(0, (word.length() + 1)/2));
-        String[] result = new String[ProjectConfig.numberDidYouMeanWord];
+        String[] result = new String[ProjectConfig.numberSimilarWord];
         ArrayList<Pair> arrayList = new ArrayList<>();
         while (true) {
             try {
@@ -49,7 +49,7 @@ public class LevenshteinAlthogrim {
             }
         }
         Collections.sort(arrayList);
-        for (int i = 0; i < Math.min(ProjectConfig.numberDidYouMeanWord, arrayList.size()); i++) {
+        for (int i = 0; i < Math.min(ProjectConfig.numberSimilarWord, arrayList.size()); i++) {
             result[i] = arrayList.get(i).word;
         }
         return result;

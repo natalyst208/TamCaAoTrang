@@ -56,12 +56,12 @@ public class DictionaryManagement extends Dictionary {
         + "VALUES(?,?,?, 0)";
     int numberRows = DicSQLite.getMaxID();
     try {
-      PreparedStatement preparedStatement;
-      preparedStatement = DicSQLite.connection.prepareStatement(query);
-      preparedStatement.setInt(1, numberRows + 1);
-      preparedStatement.setString(2, word.word);
-      preparedStatement.setString(3, word.html);
-      preparedStatement.executeUpdate();
+      PreparedStatement PreStatement;
+      PreStatement = DicSQLite.connection.prepareStatement(query);
+      PreStatement.setInt(1, numberRows + 1);
+      PreStatement.setString(2, word.word);
+      PreStatement.setString(3, word.html);
+      PreStatement.executeUpdate();
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -71,11 +71,11 @@ public class DictionaryManagement extends Dictionary {
   public void editWord(String word, String newHtml) {
     String query = "UPDATE " + ProjectConfig.databaseName + " SET html = ?" + " WHERE word = ?";
     try {
-      PreparedStatement preparedStatement;
-      preparedStatement = DicSQLite.connection.prepareStatement(query);
-      preparedStatement.setString(1, newHtml);
-      preparedStatement.setString(2, word);
-      preparedStatement.executeUpdate();
+      PreparedStatement PreStatement;
+      PreStatement = DicSQLite.connection.prepareStatement(query);
+      PreStatement.setString(1, newHtml);
+      PreStatement.setString(2, word);
+      PreStatement.executeUpdate();
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -86,9 +86,12 @@ public class DictionaryManagement extends Dictionary {
     String query =
         "DELETE FROM " + ProjectConfig.databaseName + " WHERE word LIKE " + "'" + word + "'";
     try {
-      PreparedStatement preparedStatement;
-      preparedStatement = DicSQLite.connection.prepareStatement(query);
-      preparedStatement.executeUpdate();
+      PreparedStatement PreStatement;
+      PreStatement = DicSQLite.connection.prepareStatement(query);
+      /*
+      thực hiện truy vấn
+       */
+      PreStatement.executeUpdate();
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -108,21 +111,21 @@ public class DictionaryManagement extends Dictionary {
   }
 
 
-  public void setFavoriteStatus(String word, int status) {
+  public void setFavorSituation(String word, int status) {
     word = word.replaceAll("'", "''");
     String query =
         "UPDATE " + ProjectConfig.databaseName + " SET favorite" + " = " + status + " WHERE word"
             + " IS " + "'" + word + "'";
     try {
-      PreparedStatement preparedStatement;
-      preparedStatement = DicSQLite.connection.prepareStatement(query);
-      preparedStatement.executeUpdate();
+      PreparedStatement PreStatement;
+      PreStatement = DicSQLite.connection.prepareStatement(query);
+      PreStatement.executeUpdate();
     } catch (SQLException e) {
       e.printStackTrace();
     }
   }
 
-  public ResultSet getFavorite() {
+  public ResultSet getFavor() {
     String query = "SELECT word FROM " + ProjectConfig.databaseName + " WHERE favorite = 1";
     return DicSQLite.executeQuery(query);
   }

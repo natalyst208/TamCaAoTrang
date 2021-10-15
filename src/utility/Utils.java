@@ -1,15 +1,16 @@
 package utility;
 
-import javafx.scene.image.Image;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import javafx.scene.image.Image;
+
 
 import java.io.*;
 
 public class Utils {
 
-    public static String getWordFromHtlmText(String htmlText) {
+    public static String getHTMLTextWord(String htmlText) {
         Document document = Jsoup.parse(htmlText, "UTF-8");
         Element element = document.body().select("> p").first();
         return element.text();
@@ -27,7 +28,7 @@ public class Utils {
         return image;
     }
 
-    public static String setNotEditable(String html) {
+    public static String setUneditable(String html) {
         if(html.contains("contenteditable=\"true\"")){
             html = html.replace("contenteditable=\"true\"", "contenteditable=\"false\"");
         }

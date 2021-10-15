@@ -89,7 +89,7 @@ public class Language {
 https://www.it-swarm-vi.com/vi/java/map.entry-lam-nao-de-su-dung-no/940833969/
 https://qastack.vn/programming/46898/how-do-i-efficiently-iterate-over-each-entry-in-a-java-map
  */
-    public String getABBRLanguage(String targetLanguage) {
+    public String getWantLanguage(String targetLanguage) {
         for (Map.Entry<String, String> entry : mapLang.entrySet()) {
             if (entry.getValue().equals(targetLanguage)) {
                 return entry.getKey();

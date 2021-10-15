@@ -22,23 +22,23 @@ public class EditWordController extends IntroController implements Initializable
   public void setintroStage() throws IOException {
     ProjectConfig.introStage.setScene(IntroController.getScene());
   }
-  public void setBackButton() throws IOException {
+  public void setButtonBack() throws IOException {
     ConfirmDialog cancelNotification = new ConfirmDialog();
     boolean checkNoti = cancelNotification.show("Add New Word",
-        "Are you sure want to back?");
+        "Do you want to back?");
     if (checkNoti) {
       setintroStage();
     }
   }
 
-  public void setSaveButton() throws IOException {
+  public void setButtonSave() throws IOException {
     ConfirmDialog editWordConfirm = new ConfirmDialog();
     boolean checkNoti = editWordConfirm.show("Edit Word",
-        "Are you sure want to edit this word?");
+        "Do you want to edit this word?");
     if (checkNoti) {
       myDictionary.editWord(currentWord, htmlEditor.getHtmlText());
-      InformationDialog savedDialog = new InformationDialog();
-      savedDialog.show("Edit Word", "Edited successfully");
+      InformationDialog saveNoti = new InformationDialog();
+      saveNoti.show("Edit Word", "Edited successfully");
       setintroStage();
     }
   }

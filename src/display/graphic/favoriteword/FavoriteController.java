@@ -21,23 +21,23 @@ import java.util.ResourceBundle;
 public class FavoriteController extends IntroController implements Initializable {
 
   @FXML
-  JFXListView<String> listFavoriteWords;
+  JFXListView<String> listFavorWord;
 
-  public void getFavorites() {
-    listFavoriteWords.getItems().clear();
-    ResultSet resultSet = myDictionary.getFavorite();
+  public void getFavors() {
+    listFavorWord.getItems().clear();
+    ResultSet resultSet = myDictionary.getFavor();
     while (true) {
       try {
         if (!resultSet.next()) break;
-        listFavoriteWords.getItems().add(resultSet.getString("word"));
+        listFavorWord.getItems().add(resultSet.getString("word"));
       } catch (SQLException e) {
         e.printStackTrace();
       }
     }
   }
 
-  public void getFavoriteInList() throws IOException {
-    ObservableList<String> selectedIndices = listFavoriteWords.getSelectionModel().getSelectedItems();
+  public void getFavorWordinList() throws IOException {
+    ObservableList<String> selectedIndices = listFavorWord.getSelectionModel().getSelectedItems();
     currentWord = selectedIndices.get(0);
     ProjectConfig.introStage.setScene(IntroController.getScene());
   }
@@ -47,10 +47,10 @@ public class FavoriteController extends IntroController implements Initializable
     return new Scene(root);
   }
 
-  public void setBackButton() throws IOException {
+  public void setButtonBack() throws IOException {
     ConfirmDialog cancelNotification = new ConfirmDialog();
     boolean checkNoti = cancelNotification.show("Add New Word",
-        "Are you sure want to back?");
+        "Do you want to back?");
     if (checkNoti) {
       ProjectConfig.introStage.setScene(IntroController.getScene());
     }
@@ -58,6 +58,6 @@ public class FavoriteController extends IntroController implements Initializable
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    getFavorites();
+    getFavors();
   }
 }

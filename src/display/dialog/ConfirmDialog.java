@@ -10,9 +10,9 @@ public class ConfirmDialog {
   Alert notification = new Alert(Alert.AlertType.CONFIRMATION);
 
   public boolean show(String title, String message) {
-    notification.setTitle(title);
     notification.setHeaderText(null);
     notification.setContentText(message);
+    notification.setTitle(title);
     Optional<ButtonType> option = notification.showAndWait();
     return option.filter(buttonType -> buttonType == ButtonType.OK).isPresent();
   }

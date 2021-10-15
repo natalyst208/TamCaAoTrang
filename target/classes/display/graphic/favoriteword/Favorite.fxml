@@ -27,7 +27,7 @@
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Version">
-               <MenuItem mnemonicParsing="false" onAction="#EnglishVietnameseVersion" text="English - Vietnamese" />
+               <MenuItem mnemonicParsing="false" onAction="#VerEngVie" text="English - Vietnamese" />
                <MenuItem mnemonicParsing="false" onAction="#VietAnhVersion" text="Việt - Anh" />
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
@@ -47,7 +47,7 @@
             </VBox.margin>
             <AnchorPane>
                <children>
-                  <JFXButton buttonType="RAISED" layoutX="8.0" layoutY="10.0" onAction="#setAddWordScene" prefHeight="37.0" prefWidth="205.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text=" Add Word" textAlignment="CENTER" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="8.0" layoutY="10.0" onAction="#setSceneAdd" prefHeight="37.0" prefWidth="205.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text=" Add Word" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -58,7 +58,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="227.0" layoutY="10.0" onAction="#setGoogleTranslateScene" prefHeight="37.0" prefWidth="242.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Text Translation" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="227.0" layoutY="10.0" onAction="#setGGTransText" prefHeight="37.0" prefWidth="242.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Text Translation" textFill="WHITE">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -69,7 +69,7 @@
                         <FontAwesomeIconView fill="#1f15b9" glyphName="LANGUAGE" size="22" />
                      </graphic>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="485.0" layoutY="10.0" onAction="#setFavoriteWordsScene" prefHeight="37.0" prefWidth="196.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Favorites" textAlignment="CENTER" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="485.0" layoutY="10.0" onAction="#setSceneFavor" prefHeight="37.0" prefWidth="196.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Favorites" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -90,7 +90,7 @@
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" />
          </BorderPane.margin>
-         <JFXTextField fx:id="searchTextField" focusColor="#18f500" onAction="#searchWord" prefHeight="14.0" prefWidth="690.0" promptText="Search English" style="-fx-background-color: WHITE; -fx-text-inner-color: BLACK; -fx-prompt-text-fill: BLACK;" unFocusColor="WHITE">
+         <JFXTextField fx:id="TextFieldSearch" focusColor="#18f500" onAction="#searchWord" prefHeight="14.0" prefWidth="690.0" promptText="Search English" style="-fx-background-color: WHITE; -fx-text-inner-color: BLACK; -fx-prompt-text-fill: BLACK;" unFocusColor="WHITE">
             <font>
                <Font name="System Bold" size="18.0" />
             </font>
@@ -98,12 +98,12 @@
                <Cursor fx:constant="TEXT" />
             </cursor>
          </JFXTextField>
-         <JFXListView fx:id="listFavoriteWords" onMouseClicked="#getFavoriteInList" prefHeight="475.0" prefWidth="690.0" style="-fx-font-size: 18;">
+         <JFXListView fx:id="listFavorWord" onMouseClicked="#getFavorWordinList" prefHeight="475.0" prefWidth="690.0" style="-fx-font-size: 18;">
             <padding>
                <Insets right="20.0" />
             </padding></JFXListView>
          <AnchorPane prefHeight="32.0" prefWidth="490.0" style="-fx-background-color: WHITE;" VBox.vgrow="NEVER">
-            <JFXButton buttonType="RAISED" layoutX="390.0" onAction="#setBackButton" prefHeight="30.0" prefWidth="100.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Back" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <JFXButton buttonType="RAISED" layoutX="390.0" onAction="#setButtonBack" prefHeight="30.0" prefWidth="100.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Back" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>

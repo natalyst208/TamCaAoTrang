@@ -6,6 +6,7 @@ import java.sql.*;
 
 /*
 https://www.tutorialspoint.com/sqlite/sqlite_java.htm
+https://giasutinhoc.vn/lap-trinh/lap-trinh-co-so-du-lieu-voi-jdbc/jdbc-statement-trong-java-bai-4-2/
  */
 public class SQLite {
     private static SQLite DicSQLite;
@@ -45,6 +46,9 @@ public class SQLite {
         return statement;
     }
 
+    /*
+     thực hiện truy vấn chọn. Nó trả về một thể hiện của ResultSet.
+     */
     public ResultSet executeQuery(String query) {
         Statement statement = DicSQLite.creatStatement();
         ResultSet resultSet = null;

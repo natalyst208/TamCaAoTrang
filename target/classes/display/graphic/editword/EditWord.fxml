@@ -25,7 +25,7 @@
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" />
          </BorderPane.margin>
-         <JFXTextField fx:id="searchTextField" focusColor="BLACK" maxHeight="-Infinity" maxWidth="350.0" onAction="#searchWord" onKeyReleased="#printSuggestedWords" prefHeight="45.0" prefWidth="350.0" promptText=" Search English" style="-fx-background-color: WHITE; -fx-text-inner-color: BLACK; -fx-prompt-text-fill: BLACK;" unFocusColor="BLACK">
+         <JFXTextField fx:id="TextFieldSearch" focusColor="BLACK" maxHeight="-Infinity" maxWidth="350.0" onAction="#searchWord" onKeyReleased="#printSuggestedWords" prefHeight="45.0" prefWidth="350.0" promptText=" Search English" style="-fx-background-color: WHITE; -fx-text-inner-color: BLACK; -fx-prompt-text-fill: BLACK;" unFocusColor="BLACK">
             <font>
                <Font name="System Bold" size="18.0" />
             </font>
@@ -41,7 +41,7 @@
       </VBox>
    </left>
    <center>
-      <VBox fx:id="wordExplainScene" prefHeight="766.0" prefWidth="605.0" style="-fx-background-color: GREY;" BorderPane.alignment="CENTER">
+      <VBox fx:id="SceneWordExplain" prefHeight="766.0" prefWidth="605.0" style="-fx-background-color: GREY;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" />
          </BorderPane.margin>
@@ -50,7 +50,7 @@
             <VBox.margin>
                <Insets />
             </VBox.margin>
-            <JFXButton buttonType="RAISED" onAction="#setSaveButton" prefHeight="30.0" prefWidth="100.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Save" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <JFXButton buttonType="RAISED" onAction="#setButtonSave" prefHeight="30.0" prefWidth="100.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Save" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -61,7 +61,7 @@
                   <FontAwesomeIconView glyphName="SAVE" size="20" textAlignment="CENTER" />
                </graphic>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="390.0" onAction="#setBackButton" prefHeight="30.0" prefWidth="100.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Back" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <JFXButton buttonType="RAISED" layoutX="390.0" onAction="#setButtonBack" prefHeight="30.0" prefWidth="100.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Back" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -84,7 +84,7 @@
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Version">
-               <MenuItem mnemonicParsing="false" onAction="#EnglishVietnameseVersion" text="English - Vietnamese" />
+               <MenuItem mnemonicParsing="false" onAction="#VerEngVie" text="English - Vietnamese" />
                <MenuItem mnemonicParsing="false" onAction="#VietAnhVersion" text="Việt - Anh" />
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
@@ -104,7 +104,7 @@
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>
-               <JFXButton buttonType="RAISED" contentDisplay="RIGHT" onAction="#setAddWordScene" prefHeight="37.0" prefWidth="231.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text=" Add Word" textAlignment="CENTER" textFill="WHITE">
+               <JFXButton buttonType="RAISED" contentDisplay="RIGHT" onAction="#setSceneAdd" prefHeight="37.0" prefWidth="231.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text=" Add Word" textAlignment="CENTER" textFill="WHITE">
                   <font>
                      <Font name="System Bold" size="18.0" />
                   </font>
@@ -115,7 +115,7 @@
                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                   </padding>
                </JFXButton>
-               <JFXButton buttonType="RAISED" contentDisplay="RIGHT" onAction="#setGoogleTranslateScene" prefHeight="37.0" prefWidth="215.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Text Translation" textFill="WHITE">
+               <JFXButton buttonType="RAISED" contentDisplay="RIGHT" onAction="#setGGTransText" prefHeight="37.0" prefWidth="215.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Text Translation" textFill="WHITE">
                   <padding>
                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                   </padding>
@@ -126,7 +126,7 @@
                      <FontAwesomeIconView fill="#144bd7" glyphName="LANGUAGE" size="22" />
                   </graphic>
                </JFXButton>
-               <JFXButton buttonType="RAISED" contentDisplay="RIGHT" onAction="#setFavoriteWordsScene" prefHeight="37.0" prefWidth="217.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Favorites" textAlignment="CENTER" textFill="WHITE">
+               <JFXButton buttonType="RAISED" contentDisplay="RIGHT" onAction="#setSceneFavor" prefHeight="37.0" prefWidth="217.0" ripplerFill="#00ff09" style="-fx-background-color: #39A009;" text="Favorites" textAlignment="CENTER" textFill="WHITE">
                   <font>
                      <Font name="System Bold" size="18.0" />
                   </font>

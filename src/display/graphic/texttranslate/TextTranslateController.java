@@ -23,45 +23,46 @@ public class TextTranslateController extends IntroController {
   Language language = Language.getLanguage();
 
   @FXML
-  private JFXTextArea englishText;
+  private JFXTextArea EngText;
 
   @FXML
-  private JFXTextArea translatedText;
+  private JFXTextArea beTranslatedText;
 
   @FXML
-  private ChoiceBox<String> choiceBoxEnglish;
+  private ChoiceBox<String> choiceEngBox;
 
   @FXML
-  private ChoiceBox<String> choiceBoxTranslated;
+  private ChoiceBox<String> choiceTransBox;
 
-  public void setBackButton() throws IOException {
+  public void setButtonBack() throws IOException {
     ConfirmDialog cancelNotification = new ConfirmDialog();
     boolean checkNoti = cancelNotification.show("Add Word",
-        "Are you sure want to back?");
+        "Do you want to back?");
     if (checkNoti) {
       ProjectConfig.introStage.setScene(IntroController.getScene());
     }
   }
 
   public void translate() {
-    String text = englishText.getText();
-    String targetLanguage = choiceBoxTranslated.getValue();
-    String sourceLanguage = choiceBoxEnglish.getValue();
-    targetLanguage = language.getABBRLanguage(targetLanguage);
-    sourceLanguage = language.getABBRLanguage(sourceLanguage);
+    String text = EngText.getText();
+    String targetLanguage = choiceTransBox.getValue();
+    String sourceLanguage = choiceEngBox.getValue();
+    targetLanguage = language.getWantLanguage(targetLanguage);
+    sourceLanguage = language.getWantLanguage(sourceLanguage);
     StringBuilder translated = APIGoogleTranslate.translate(sourceLanguage, targetLanguage, text);
-    translatedText.setText(String.valueOf(translated));
+    beTranslatedText.setText(String.valueOf(translated));
   }
 
-  public void englishSpeak() {
-    String text = englishText.getText();
-    TextToSpeech.speak(text);
-  }
 
   public void translatedSpeak() {
-    String text = translatedText.getText();
+    String text = beTranslatedText.getText();
     TextToSpeech.speak(text);
   }
+  public void englishSpeak() {
+    String text = EngText.getText();
+    TextToSpeech.speak(text);
+  }
+
 
   public static Scene getScene() throws IOException {
     Parent root = FXMLLoader.load(TextTranslateController.class.getResource("texttranslate.fxml"));
@@ -71,10 +72,10 @@ public class TextTranslateController extends IntroController {
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     for (Map.Entry<String, String> entry : language.mapLang.entrySet()) {
-      choiceBoxTranslated.getItems().add(entry.getValue());
-      choiceBoxEnglish.getItems().add(entry.getValue());
+      choiceTransBox.getItems().add(entry.getValue());
+      choiceEngBox.getItems().add(entry.getValue());
     }
-    choiceBoxEnglish.setValue("ENGLISH");
-    choiceBoxTranslated.setValue("VIETNAMESE");
+    choiceEngBox.setValue("ENGLISH");
+    choiceTransBox.setValue("VIETNAMESE");
   }
 }

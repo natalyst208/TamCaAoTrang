@@ -22,30 +22,30 @@ public class AddWordController extends IntroController {
 
   public boolean addWord() {
     String html = htmlEditor.getHtmlText();
-    String word = Utils.getWordFromHtlmText(html);
+    String word = Utils.getHTMLTextWord(html);
     Word newWord = new Word(word, html);
     return myDictionary.saveWord(newWord);
   }
-  public void setSaveButton() throws IOException {
+  public void setButtonSave() throws IOException {
     ConfirmDialog addWordConfirm = new ConfirmDialog();
     boolean checkNoti = addWordConfirm.show("Add New Word",
         "Are you sure want to add this word?");
     if (checkNoti) {
-      boolean isSave = addWord();
-      if (isSave) {
-        InformationDialog addDialog = new InformationDialog();
-        addDialog.show("Add New Word", "Added successfully");
+      boolean beSaved = addWord();
+      if (beSaved) {
+        InformationDialog addNoti = new InformationDialog();
+        addNoti.show("Add New Word", "Added successfully");
         setintroStage();
       } else {
-        ErrorDialog addDialog = new ErrorDialog();
-        addDialog.show("Add New Word", "Error: The word already had");
+        ErrorDialog addNoti = new ErrorDialog();
+        addNoti.show("Add New Word", "Error: The word was saved");
       }
     }
   }
-  public void setBackButton() throws IOException {
+  public void setButtonBack() throws IOException {
     ConfirmDialog cancelNotification = new ConfirmDialog();
     boolean checkNoti = cancelNotification.show("Add New Word",
-        "Are you sure want to back?");
+        "Do you want to back?");
     if (checkNoti) {
       setintroStage();
     }

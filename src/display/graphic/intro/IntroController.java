@@ -40,19 +40,19 @@ public class IntroController implements Initializable {
   private BorderPane borderPane;
 
   @FXML
-  public TextField searchTextField;
+  public TextField TextFieldSearch;
 
   @FXML
-  private WebView wordExplainView;
+  private WebView ViewWordExplain;
 
   @FXML
-  private FontAwesomeIconView speakerIcon;
+  private FontAwesomeIconView SpeakerButtonn;
 
   @FXML
   private ListView<String> listView;
 
   @FXML
-  private VBox wordExplainScene;
+  private VBox SceneWordExplain;
 
   @FXML
   private ToolBar toolBar;
@@ -65,11 +65,11 @@ public class IntroController implements Initializable {
   @FXML
 
   public void searchWord() {
-    currentWord = searchTextField.getText();
+    currentWord = TextFieldSearch.getText();
     if (myDictionary.checkbeContained(currentWord)) {
-      setWordExplainScene();
+      setSceneExplain();
     } else {
-      setDidYouMeanScene();
+      setthesameMean();
     }
   }
 
@@ -80,18 +80,18 @@ public class IntroController implements Initializable {
   public void changeFavoriteStatus() {
     if (favorite.getGlyphName().equals("HEART")) {
       favorite.setGlyphName("HEART_ALT");
-      myDictionary.setFavoriteStatus(currentWord, 0);
+      myDictionary.setFavorSituation(currentWord, 0);
     } else {
       favorite.setGlyphName("HEART");
-      myDictionary.setFavoriteStatus(currentWord, 1);
+      myDictionary.setFavorSituation(currentWord, 1);
     }
   }
 
   public void deleteWord() throws SQLException {
-    ConfirmDialog deleteConfirm = new ConfirmDialog();
-    boolean checkNoti = deleteConfirm.show("Delete", "Are you sure want to delete this word?");
+    ConfirmDialog deleteNoti = new ConfirmDialog();
+    boolean checkNoti = deleteNoti.show("Delete", "Do you want to delete this word?");
     if (checkNoti) {
-      wordExplainView.getEngine()
+      ViewWordExplain.getEngine()
           .loadContent("<h1>Không tìm thấy dữ liệu.</h1>");
       myDictionary.deleteWord(currentWord);
       printSuggestedWords();
@@ -100,7 +100,7 @@ public class IntroController implements Initializable {
 
   public void printSuggestedWords() throws SQLException {
     listView.getItems().clear();
-    ResultSet resultSet = myDictionary.SearchDic(searchTextField.getText());
+    ResultSet resultSet = myDictionary.SearchDic(TextFieldSearch.getText());
     while (resultSet.next()) {
       listView.getItems().add(resultSet.getString("word"));
     }
@@ -108,11 +108,11 @@ public class IntroController implements Initializable {
 
   public void getSelectedWordInSuggestedList() {
     ObservableList<String> selectedIndices = listView.getSelectionModel().getSelectedItems();
-    searchTextField.setText(selectedIndices.get(0));
+    TextFieldSearch.setText(selectedIndices.get(0));
     searchWord();
   }
 
-  private void setDidYouMeanScene() {
+  private void setthesameMean() {
     StringBuilder html = new StringBuilder("<h1>Không tìm thấy dữ liệu.</h1>");
     html.append("<h1>Có phải từ bạn muốn tìm kiếm là: </h1>");
     String[] result = LevenshteinAlthogrim.getMostSimilar(currentWord);
@@ -124,40 +124,40 @@ public class IntroController implements Initializable {
     }
     html = new StringBuilder(
         "<body style=" + "\"background-color:#FFFFFFFF;" + "\">" + html + "</body>");
-    wordExplainView.getEngine().loadContent(html.toString());
-    borderPane.setCenter(wordExplainScene);
+    ViewWordExplain.getEngine().loadContent(html.toString());
+    borderPane.setCenter(SceneWordExplain);
   }
 
-  public void setWordExplainScene() {
+  public void setSceneExplain() {
     String htmlOfSearchWord = myDictionary.LookupDic(currentWord);
     htmlOfSearchWord =
         "<body style=" + "\"background-color:#FFFFFFFF;" + "\">" + htmlOfSearchWord + "</body>";
     int checkbeFavorited = myDictionary.checkbeFavorited(currentWord);
-    htmlOfSearchWord = Utils.setNotEditable(htmlOfSearchWord);
-    wordExplainView.getEngine().loadContent(htmlOfSearchWord);
+    htmlOfSearchWord = Utils.setUneditable(htmlOfSearchWord);
+    ViewWordExplain.getEngine().loadContent(htmlOfSearchWord);
     if (checkbeFavorited == 0) {
       favorite.setGlyphName("HEART_ALT");
     } else {
       favorite.setGlyphName("HEART");
     }
-    speakerIcon.setVisible(true);
+    SpeakerButtonn.setVisible(true);
     favorite.setVisible(true);
-    borderPane.setCenter(wordExplainScene);
+    borderPane.setCenter(SceneWordExplain);
   }
 
-  public void setAddWordScene() throws IOException {
+  public void setSceneAdd() throws IOException {
     ProjectConfig.introStage.setScene(AddWordController.getScene());
   }
 
-  public void setEditWordScene() throws IOException {
+  public void setSceneEdit() throws IOException {
     ProjectConfig.introStage.setScene(EditWordController.getScene());
   }
 
-  public void setGoogleTranslateScene() throws IOException {
+  public void setGGTransText() throws IOException {
     ProjectConfig.introStage.setScene(TextTranslateController.getScene());
   }
 
-  public void setFavoriteWordsScene() throws IOException {
+  public void setSceneFavor() throws IOException {
     ProjectConfig.introStage.setScene(FavoriteController.getScene());
   }
 
@@ -166,7 +166,7 @@ public class IntroController implements Initializable {
     return new Scene(root);
   }
 
-  public void EnglishVietnameseVersion() throws IOException {
+  public void VerEngVie() throws IOException {
     ProjectConfig.databaseName = "av";
     ProjectConfig.introStage.setScene(IntroController.getScene());
   }
@@ -199,7 +199,7 @@ public class IntroController implements Initializable {
     }
     if (currentWord == null) {
     } else {
-      setWordExplainScene();
+      setSceneExplain();
     }
   }
 }
